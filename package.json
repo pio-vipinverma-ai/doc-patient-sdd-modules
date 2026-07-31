@@ -1,0 +1,28 @@
+{
+  "name": "doc-patient-sdd-ai-module-4",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Testing stack baseline for F1 planning workspace",
+  "scripts": {
+    "test": "npm run test:all",
+    "test:unit": "vitest run tests/unit",
+    "test:unit:watch": "vitest tests/unit",
+    "test:integration": "vitest run tests/integration",
+    "test:integration:watch": "vitest tests/integration",
+    "test:e2e": "playwright test tests/e2e",
+    "test:e2e:ui": "playwright test tests/e2e --ui",
+    "test:coverage": "vitest run --coverage",
+    "test:all": "npm run test:unit && npm run test:integration && npm run test:e2e"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@vitest/coverage-v8": "^2.1.5",
+    "msw": "^2.4.11",
+    "supertest": "^7.0.0",
+    "vitest": "^2.1.5"
+  },
+  "dependencies": {
+    "typescript": "^7.0.2"
+  }
+}
