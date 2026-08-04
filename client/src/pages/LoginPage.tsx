@@ -12,7 +12,7 @@ function normalizeReturnTo(raw: string | null): string {
     return "/dashboard";
   }
 
-  return raw; 
+  return raw;    
 }
 
 export function LoginPage(): JSX.Element {
