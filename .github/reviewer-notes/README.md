@@ -14,6 +14,8 @@ When a branch is pushed, the `.github/workflows/auto-create-pr.yml` workflow wil
 - `.github/reviewer-notes/<branch>-pr.md`
 - `.github/reviewer-notes/<branch>-review.md`
 
+If GitHub Actions is not permitted to create PRs with `GITHUB_TOKEN`, you can provide a personal access token secret named `PR_CREATOR_TOKEN` with `repo` permissions.
+
 If you are using the `diff-reviewer` agent, produce the review note in one of those file names before pushing the branch.
 
 ## Recommended contents
