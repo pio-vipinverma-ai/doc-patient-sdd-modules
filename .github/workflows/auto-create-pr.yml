@@ -31,6 +31,14 @@ jobs:
             exit 0
           fi
 
+      - name: Debug token source
+        run: |
+          if [ -n "${{ secrets.PR_CREATOR_TOKEN }}" ]; then
+            echo "Using PR_CREATOR_TOKEN fallback for PR creation."
+          else
+            echo "No PR_CREATOR_TOKEN found; using GITHUB_TOKEN."
+          fi
+
       - name: Create pull request if none exists
         env:
           BODY_FILE: ${{ steps.resolve.outputs.body_file }}
