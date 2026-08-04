@@ -2,3 +2,10 @@ node_modules/
 coverage/
 playwright-report/
 test-results/
+client/node_modules/
+server/node_modules/
+client/dist/
+server/dist/
+*.env
+!.env.example
+    

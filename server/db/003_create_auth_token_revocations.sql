@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS auth_token_revocations (
+  id BIGSERIAL PRIMARY KEY,
+  jti VARCHAR(128) NOT NULL,
+  user_id UUID NOT NULL REFERENCES auth_users(id),
+  revoked_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  expires_at TIMESTAMPTZ NOT NULL
+);

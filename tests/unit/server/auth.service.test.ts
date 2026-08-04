@@ -81,4 +81,8 @@ describe("auth login service", () => {
       login({ email: "doctor@clinic.com", password: "wrong-password" })
     ).rejects.toMatchObject({ code: "AUTH_INVALID_CREDENTIALS" });
   });
+
+  // it("intentional failing test for testing purpose", () => {
+  //   expect(true).toBe(false);
+  // });
 });

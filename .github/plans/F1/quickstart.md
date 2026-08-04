@@ -8,7 +8,7 @@
 ## Environment Variables
 Set in server/.env (from server/.env.example):
 - SERVER_PORT=4000
-- DATABASE_URL=postgres://username:password@localhost:5432/doc_patient
+- DATABASE_URL=postgres://postgres:123.com@localhost:5432/doc_patient_db
 - JWT_SECRET=replace_with_strong_secret
 - JWT_EXPIRES_IN=3600
 - LOGIN_RATE_LIMIT_WINDOW_SEC=60
@@ -37,7 +37,7 @@ Request to POST /api/v1/auth/login:
 ```json
 {
   "email": "doctor@clinic.com",
-  "password": "CorrectPassword123"
+  "password": "password123"
 }
 ```
 Expected:

@@ -2,27 +2,54 @@
   "name": "doc-patient-sdd-ai-module-4",
   "version": "0.1.0",
   "private": true,
-  "description": "Testing stack baseline for F1 planning workspace",
+  "description": "Doctor patient app monorepo with F1 secure login baseline",
+  "workspaces": [
+    "client",
+    "server"
+  ],
   "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "build": "npm run build:server && npm run build:client",
+    "build:server": "npm --prefix server run build",
+    "build:client": "npm --prefix client run build",
+    "start": "npm --prefix server run start",
     "test": "npm run test:all",
-    "test:unit": "vitest run tests/unit",
+    "test:unit": "npm run test:unit:root && npm run test:unit:server && npm run test:unit:client",
+    "test:unit:root": "vitest run tests/unit",
+    "test:unit:server": "npm --prefix server run test:unit",
+    "test:unit:client": "npm --prefix client run test:unit",
     "test:unit:watch": "vitest tests/unit",
-    "test:integration": "vitest run tests/integration",
+    "test:integration": "npm run test:integration:root && npm run test:integration:server && npm run test:integration:client",
+    "test:integration:root": "vitest run tests/integration",
+    "test:integration:server": "npm --prefix server run test:integration",
+    "test:integration:client": "npm --prefix client run test:integration",
     "test:integration:watch": "vitest tests/integration",
+    "typecheck": "npm --prefix server run typecheck && npm --prefix client run typecheck",
+    "lint": "eslint .",
+    "e2e": "npm run test:e2e",
     "test:e2e": "playwright test tests/e2e",
     "test:e2e:ui": "playwright test tests/e2e --ui",
     "test:coverage": "vitest run --coverage",
     "test:all": "npm run test:unit && npm run test:integration && npm run test:e2e"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.6",
+    "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.55.0",
     "@testing-library/jest-dom": "^6.6.3",
+    "@typescript-eslint/eslint-plugin": "^8.65.0",
+    "@typescript-eslint/parser": "^8.65.0",
     "@vitest/coverage-v8": "^2.1.5",
+    "concurrently": "^9.2.0",
+    "eslint": "^10.8.0",
+    "globals": "^17.8.0",
     "msw": "^2.4.11",
     "supertest": "^7.0.0",
     "vitest": "^2.1.5"
   },
   "dependencies": {
-    "typescript": "^7.0.2"
+    "typescript": "^5.9.2"
   }
 }
