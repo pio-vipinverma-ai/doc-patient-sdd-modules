@@ -1,10 +1,7 @@
 import request from "supertest";
 import { beforeEach, describe, expect, it } from "vitest";
-import {
-  AccountLockedError,
-  InvalidCredentialsError,
-  type AuthService
-} from "../src/auth/auth.service.js";
+import { AccountLockedError, InvalidCredentialsError } from "../src/errors/authErrors.js";
+import type { AuthService } from "../src/auth/auth.service.js";
 import { createApp } from "../src/index.js";
 import { resetRateLimitStateForTests } from "../src/middleware/rateLimitLogin.js";
 

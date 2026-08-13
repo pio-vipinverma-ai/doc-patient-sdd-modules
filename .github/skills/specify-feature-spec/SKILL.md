@@ -23,6 +23,14 @@ Use this skill to convert a feature id into a structured specification markdown 
 
 ## Procedure
 
+Precondition: run the project constitution validator and abort if validation reports errors. Example:
+
+```bash
+node .github/skills/sdd-project-constitution/validate.js
+```
+
+If the validator exits with errors, return diagnostics and stop.
+
 1. Parse and normalize feature id.
 - Trim whitespace.
 - Uppercase the id.

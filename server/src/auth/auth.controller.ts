@@ -4,7 +4,7 @@ import type { AuthService } from "./auth.service.js";
 import {
   AccountLockedError,
   InvalidCredentialsError
-} from "./auth.service.js";
+} from "../errors/authErrors.js";
 import {
   registerLoginFailure,
   registerLoginSuccess

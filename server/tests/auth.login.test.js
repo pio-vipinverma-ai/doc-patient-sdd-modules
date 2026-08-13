@@ -1,6 +1,6 @@
 import request from "supertest";
 import { beforeEach, describe, expect, it } from "vitest";
-import { AccountLockedError, InvalidCredentialsError } from "../src/auth/auth.service.js";
+import { AccountLockedError, InvalidCredentialsError } from "../src/errors/authErrors.js";
 import { createApp } from "../src/index.js";
 import { resetRateLimitStateForTests } from "../src/middleware/rateLimitLogin.js";
 const fakeUser = {

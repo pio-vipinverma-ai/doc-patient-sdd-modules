@@ -1,0 +1,26 @@
+name: Validate Constitution
+
+on:
+  pull_request:
+    paths:
+      - '.github/constitution.md'
+      - '.github/**'
+      - '.github/skills/sdd-project-constitution/**'
+  push:
+    branches: [ 'main' ]
+    paths:
+      - '.github/constitution.md'
+      - '.github/**'
+
+jobs:
+  validate:
+    name: Validate Project Constitution
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Run constitution validator
+        run: node .github/skills/sdd-project-constitution/validate.js ${{ github.workspace }}
